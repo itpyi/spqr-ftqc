@@ -1,5 +1,9 @@
 # FTQC Book - Chapter Structure
 
+[![Deploy to GitHub Pages](https://github.com/itpyi/spqr-ftqc/actions/workflows/deploy.yml/badge.svg)](https://github.com/itpyi/spqr-ftqc/actions/workflows/deploy.yml)
+
+**📚 Live Site:** [http://itpyi.site/spqr-ftqc/](http://itpyi.site/spqr-ftqc/)
+
 This book contains template chapters demonstrating nested structure in Shiroa/Typst.
 
 ## Current Structure
@@ -74,7 +78,9 @@ FTQC/
    #prefix-chapter("surface-codes.typ")[Surface Codes]
    ```
 
-## Building
+## Building and Deployment
+
+### Local Development
 
 ```bash
 # Build the book
@@ -91,6 +97,21 @@ open dist/index.html
 ```
 
 **Note:** `shiroa serve` does not include file watching. Use `./watch-and-serve.sh` for automatic rebuilds on file changes.
+
+### Automated Deployment
+
+This book is automatically deployed to GitHub Pages when changes are pushed to the `main` branch:
+
+- **Live URL:** [http://itpyi.site/spqr-ftqc/](http://itpyi.site/spqr-ftqc/)
+- **Build Status:** Check the [Actions tab](https://github.com/itpyi/spqr-ftqc/actions)
+- **Build Time:** Approximately 4-5 minutes per deployment
+
+The deployment workflow:
+1. Installs Rust and Shiroa v0.3.0
+2. Builds the book with `shiroa build`
+3. Deploys the `dist/` directory to GitHub Pages
+
+To update the live site, simply push your changes to the `main` branch.
 
 ## Next Steps
 

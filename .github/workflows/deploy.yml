@@ -39,7 +39,7 @@ jobs:
       - name: Install Shiroa
         run: |
           if ! command -v shiroa &> /dev/null; then
-            cargo install --git https://github.com/Myriad-Dreamin/shiroa.git --locked shiroa
+            cargo install --git https://github.com/Myriad-Dreamin/shiroa.git --tag v0.2.0 --locked shiroa
           else
             echo "Shiroa already installed"
           fi

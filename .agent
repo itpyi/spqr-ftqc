@@ -1,0 +1,40 @@
+# FTQC Book Project
+
+## What This Is
+A Typst-based book on Fault-Tolerant Quantum Computation using Shiroa for static site generation. Auto-deployed to GitHub Pages at http://itpyi.site/spqr-ftqc/
+
+## Project Structure
+- `*.typ` - Book content files (Typst format)
+- `book.typ` - Main book configuration with chapter structure
+- `templates/` - Page templates and theme styling
+- `dist/` - Generated output (gitignored, auto-built by CI)
+- `.github/workflows/deploy.yml` - Auto-deployment to GitHub Pages
+
+## Key Technical Details
+- **Shiroa CLI**: v0.3.0 (matches local dev environment)
+- **Shiroa Library**: @preview/shiroa:0.2.0 (in book.typ)
+- **Build Command**: `shiroa build --path-to-root /spqr-ftqc/` (REQUIRED for correct paths)
+- **Local Dev**: Use `./watch-and-serve.sh` for live reload
+
+## DO
+- Commit after each logical unit of work (e.g., per chapter update, per bug fix)
+- Test locally with `./watch-and-serve.sh` before pushing
+- Keep commits focused and atomic
+- Update README/GUIDE.md if adding features or changing workflows
+
+## DON'T
+- Change shiroa versions without testing thoroughly (CLI/library must match)
+- Remove `--path-to-root /spqr-ftqc/` from deploy.yml (breaks GitHub Pages)
+- Commit the `dist/` directory (CI builds it)
+- Change base paths without understanding implications
+
+## Common Tasks
+- **Add chapter**: Create `new-chapter.typ`, add to `book.typ` summary
+- **Update content**: Edit `.typ` files, test locally, commit with descriptive message
+- **Fix styling**: Modify `templates/page.typ` or `templates/theme-style.toml`
+- **Deploy**: Just push to main branch - CI handles the rest
+
+## Troubleshooting
+- CSS not loading? Check `--path-to-root` in deploy.yml
+- Build fails? Verify shiroa version compatibility
+- Local preview? Use `./watch-and-serve.sh`, not `shiroa serve` alone

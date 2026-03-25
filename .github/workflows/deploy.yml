@@ -45,7 +45,7 @@ jobs:
           fi
 
       - name: Build Book
-        run: shiroa build
+        run: shiroa build --path-to-root /spqr-ftqc/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
